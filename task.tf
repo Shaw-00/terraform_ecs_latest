@@ -70,6 +70,7 @@ resource "aws_ecs_task_definition" "my_first_task" {
       ],
       "memory": 512,
       "cpu": 256,
+      "Healthcheck": [ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]
       "networkMode": "awsvpc"
     }
   ]
