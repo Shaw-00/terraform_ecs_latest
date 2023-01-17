@@ -1,9 +1,7 @@
 terraform {
-
   backend "s3" {
-    bucket = "${var.app_name}-bucket"
-    key = "terraform.tfstate"
-    region = "eu-west-2"
-    encrypt = true
+    bucket         = "mybucket-terraform-1-2"
+    key            = "network/terraform.tfstate"
+    region         = "eu-west-2"
   }
 }
