@@ -1,7 +1,7 @@
 resource "aws_db_instance" "postgresdb1" {
     name                  = "postgresdb1"
     parameter_group_name     = "default.postgres13" # if you have tuned it
-    password                 = "mydb123456"
+    password                 = data.aws_ssm_parameter.password.value
     allocated_storage        = 256 # gigabytes
     backup_retention_period  = 7   # in days
     db_subnet_group_name     =  "${aws_db_subnet_group.db-subnet.name}"
