@@ -18,6 +18,10 @@ resource "aws_db_instance" "postgresdb1" {
     vpc_security_group_ids   = ["${aws_security_group.Terraform_sg.id}"]
 }
 
+data "aws_ssm_parameter" "password" {
+  name = "password"
+}
+
 resource "aws_db_subnet_group" "db-subnet" {
 name = "rdsgroup"
 subnet_ids = ["${aws_default_subnet.default_subnet_a.id}", "${aws_default_subnet.default_subnet_b.id}", "${aws_default_subnet.default_subnet_c.id}"]
